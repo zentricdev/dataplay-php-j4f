@@ -1,4 +1,4 @@
-.PHONY: lint pint phpstan t800 help
+.PHONY: lint pint phpstan terminator help
 
 PINT = ./vendor/bin/pint
 PHPSTAN = ./vendor/bin/phpstan
@@ -14,7 +14,7 @@ pint:
 phpstan:
 	@$(PHPSTAN)
 
-t800:
+terminator:
 	@echo
 	@php ./src/SkyNet/Command.php
 	@echo
