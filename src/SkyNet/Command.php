@@ -25,5 +25,5 @@ Terminator::build()
             )
         )
     ))
-    ->teleport()
-    ->terminate();
+    ->relocate()
+    ->accomplish();

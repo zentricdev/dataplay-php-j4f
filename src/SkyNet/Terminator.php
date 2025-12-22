@@ -42,37 +42,38 @@ final class Terminator extends Core
         return $this;
     }
 
-    public function teleport(): static
+    public function relocate(): static
     {
         $this->location = $this->target?->location;
         $this->timeline = $this->target?->location->timeline;
 
-        $this->log("TELEPORTED TO {$this->target?->location}");
+        $this->log("UNIT RELOCATED TO {$this->target?->location}");
 
         return $this;
     }
 
     /** Infinite recursion because a Terminator has no plan B */
-    public function terminate(): void
+    public function accomplish(): void
     {
-        $this->log('TARGET TERMINANTING...');
+        $this->log('ACQUIRING TARGET...');
 
         try {
             $this->target = null;
-            $this->log('TARGET TERMINATED');
+            $this->log('TARGET TERMINATED - MISSION ACCOMPLISHED');
             $this->output(implode(PHP_EOL, $this->log));
         } catch (SkyNetException $exception) {
-            $this->log($exception->getMessage());
+            $this->log("SYSTEM ERROR: {$exception->getMessage()}");
             $this->log('I\'LL BE BACK');
-            $this->terminate();
+            $this->accomplish();
         }
     }
 
     protected function log(string $message): void
     {
         $timestamp = $this->timeline?->format('Y-m-d H:i:s');
-
-        $this->log[] = "[$timestamp] $message";
+        $color = "\033[0;32m";
+        $reset = "\033[0m";
+        $this->log[] = "$timestamp {$color}$message{$reset}";
     }
 
     protected function output(string $message): void

@@ -15,13 +15,15 @@ phpstan:
 	@$(PHPSTAN)
 
 t800:
+	@echo
 	@php ./src/SkyNet/Command.php
+	@echo
 
 help:
 	@echo "+-----------+-----------------------------------+"
 	@echo "| Command   | Description                       |"
 	@echo "+-----------+-----------------------------------+"
-	@echo "| make t800 | Instantiate T-800 and run mission |"
+	@echo "| make t800 | Instantiate T-800 and accomplish mission |"
 	@echo "+-----------+-----------------------------------+"
 # Catch-all para que no de error al pasar argumentos
 %:
