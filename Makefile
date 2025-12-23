@@ -20,11 +20,12 @@ terminator:
 	@echo
 
 help:
-	@echo "+-----------+-----------------------------------+"
-	@echo "| Command   | Description                       |"
-	@echo "+-----------+-----------------------------------+"
-	@echo "| make t800 | Instantiate T-800 and accomplish mission |"
-	@echo "+-----------+-----------------------------------+"
+	@echo "+-----------------+------------------------------------------+"
+	@echo "| Command         | Description                              |"
+	@echo "+-----------------+------------------------------------------+"
+	@echo "| make terminator | Instantiate T-800 and accomplish mission |"
+	@echo "+-----------------+------------------------------------------+"
+
 # Catch-all para que no de error al pasar argumentos
 %:
 	@:

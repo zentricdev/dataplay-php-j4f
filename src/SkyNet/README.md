@@ -8,8 +8,6 @@ Inspired by the 1984 film _The Terminator_, the simulation features the artifici
 
 The `Command.php` file serves as the entry point, where the Terminator is instantiated, assigned its target, and ordered to fulfill its mission.
 
-The `Command.php` file serves as the entry point, where the Terminator is instantiated, assigned its target, and ordered to fulfill its mission.
-
 ## PHP Concepts Illustrated
 
 This project leverages several design patterns and modern PHP features (8.1+).

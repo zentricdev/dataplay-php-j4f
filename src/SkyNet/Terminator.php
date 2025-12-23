@@ -18,9 +18,9 @@ final class Terminator extends Core
     protected string $unit = 'Terminator';
     protected string $series = 'T-800';
     protected string $model = '101';
-    protected ?Target $target = null;
-    protected ?SpatioTemporalLocation $location = null;
-    protected ?DateTime $timeline = null;
+    protected ?Target $target;
+    protected ?SpatioTemporalLocation $location;
+    protected ?DateTime $timeline;
     protected float $missionClock;
 
     public function __construct()
@@ -86,7 +86,7 @@ final class Terminator extends Core
         $seconds = round(microtime(true) - $this->missionClock);
         $interval = "PT{$seconds}S";
         $timestamp = $this->timeline
-            ->add(new DateInterval($interval))
+            ?->add(new DateInterval($interval))
             ->format('Y-m-d H:i:s');
 
         $color = "\033[0;32m";
