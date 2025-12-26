@@ -18,13 +18,13 @@ Este proyecto utiliza varios patrones de diseño y características modernas de 
 
 ### 1. Clases Abstractas y Herencia
 
-- **`Core.php`**: Definida como una `abstract class`. No se puede instanciar directamente, pero establece la base del sistema, conteniendo constantes fundamentales como la corporación (`Cyberdyne Systems`) y el versionado—bajo la suposición lúdica de que SkyNet se desarrolla en un futuro entorno de **PHP 11.4**.
+- **`Core.php`**: Definida como una `abstract class`. No se puede instanciar directamente, pero establece la base del sistema, conteniendo constantes fundamentales como la corporación (`Cyberdyne Systems`) y el versionad, bajo la suposición lúdica de que SkyNet se desarrolla en un futuro entorno de **PHP 11.4**.
 
 - **`Terminator.php`**: Hereda de `Core` (`extends Core`), especializando la funcionalidad base para una unidad de combate.
 
 ### 2. Clases Finales
 
-- **`Terminator.php`**, los DTOs y la `SkyNetException` están declarados como `final`. Esto previene la herencia posterior, asegurando que la implementación permanezca inmutable y única—una buena práctica para la lógica de dominio específico.
+- **`Terminator.php`**, los DTOs y la `SkyNetException` están declarados como `final`. Esto previene la herencia posterior, asegurando que la implementación permanezca inmutable y única, una buena práctica para la lógica de dominio específico.
 
 ### 3. Data Transfer Objects (DTOs) y Clases Readonly
 
@@ -58,7 +58,7 @@ Para garantizar la integridad de los datos, el proyecto utiliza DTOs inmutables:
 
 - **Ajuste Dinámico de la Línea de Tiempo**: El método `relocate()` realiza un cambio de estado interno crucial. Cuando el Terminator es desplazado, el reloj interno del sistema se sincroniza con la línea de tiempo del objetivo (`$this->timeline = $this->target->location->timeline`). Esto se refleja en los registros de ejecución, donde se puede observar el salto desde la fecha de origen en 2029 hasta la fecha de llegada del objetivo en 1984, simulando un desplazamiento temporal en tiempo real.
 
-- **Nota técnica sobre el registro (Logging)**: El método `log()` funciona de manera independiente a la hora del sistema anfitrión. En su lugar, calcula las marcas de tiempo combinando la propiedad interna `$timeline` —inicializada en el momento del despliegue (11 de julio de 2029)— con el `$missionClock`. Este reloj captura el `microtime()` exacto del inicio de la misión, permitiendo al sistema desplazar la fecha futura mediante los segundos transcurridos reales de la operación. Esto garantiza que los registros mantengan la coherencia cronológica con el canon de la película, incluso cuando la unidad transiciona del futuro al pasado durante la secuencia `relocate()`.
+- **Nota técnica sobre el registro (Logging)**: El método `log()` funciona de manera independiente a la hora del sistema anfitrión. En su lugar, calcula las marcas de tiempo combinando la propiedad interna `$timeline`, inicializada en el momento del despliegue (11 de julio de 2029) con el `$missionClock`. Este reloj captura el `microtime()` exacto del inicio de la misión, permitiendo al sistema desplazar la fecha futura mediante los segundos transcurridos reales de la operación. Esto garantiza que los registros mantengan la coherencia cronológica con el canon de la película, incluso cuando la unidad transiciona del futuro al pasado durante la secuencia `relocate()`.
 
 ### 8. Divergencia y Persistencia de la Línea de Tiempo
 

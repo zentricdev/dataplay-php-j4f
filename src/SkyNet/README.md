@@ -18,13 +18,13 @@ This project leverages several design patterns and modern PHP features (8.1+).
 
 ### 1. Abstract Classes and Inheritance
 
-- **`Core.php`**: Defined as an `abstract class`. It cannot be instantiated directly but establishes the system's foundation, containing fundamental constants like the corporation (`Cyberdyne Systems`) and versioning—under the playful assumption that SkyNet is developed in a future **PHP 11.4** environment.
+- **`Core.php`**: Defined as an `abstract class`. It cannot be instantiated directly but establishes the system's foundation, containing fundamental constants like the corporation (`Cyberdyne Systems`) and versioning, under the playful assumption that SkyNet is developed in a future **PHP 11.4** environment.
 
 - **`Terminator.php`**: Inherits from `Core` (`extends Core`), specializing the base functionality for a combat unit.
 
 ### 2. Final Classes
 
-- **`Terminator.php`**, DTOs, and the `SkyNetException` are declared as `final`. This prevents further inheritance, ensuring the implementation remains immutable and unique—a best practice for domain-specific logic.
+- **`Terminator.php`**, DTOs, and the `SkyNetException` are declared as `final`. This prevents further inheritance, ensuring the implementation remains immutable and unique, a best practice for domain-specific logic.
 
 ### 3. Data Transfer Objects (DTOs) and Readonly Classes
 
@@ -58,7 +58,7 @@ To ensure data integrity, the project utilizes immutable DTOs:
 
 - **Dynamic Timeline Adjustment**: The `relocate()` method performs a crucial internal state change. When the Terminator is displaced, the system's internal clock synchronizes with the target's timeline (`$this->timeline = $this->target->location->timeline`). This is reflected in the execution logs, where you can observe the jump from the origin date in 2029 to the target's arrival date in 1984, simulating a real-time temporal displacement.
 
-- **Technical Note on Logging**: The `log()` method operates independently of the host's system time. Instead, it calculates timestamps by combining the internal `$timeline` property—initialized at the moment of deployment (July 11, 2029)—with the `$missionClock`. This clock captures the exact `microtime()` of the mission's start, allowing the system to offset the future date by the actual elapsed seconds of the operation. This ensures that logs remain chronologically consistent with the movie's canon, even as the unit transitions from the future to the past during the `relocate()` sequence.
+- **Technical Note on Logging**: The `log()` method operates independently of the host's system time. Instead, it calculates timestamps by combining the internal `$timeline` propert, initialized at the moment of deployment (July 11, 2029), with the `$missionClock`. This clock captures the exact `microtime()` of the mission's start, allowing the system to offset the future date by the actual elapsed seconds of the operation. This ensures that logs remain chronologically consistent with the movie's canon, even as the unit transitions from the future to the past during the `relocate()` sequence.
 
 ### 8. Timeline Divergence & Persistence
 
