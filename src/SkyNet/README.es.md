@@ -18,7 +18,7 @@ Este proyecto utiliza varios patrones de diseño y características modernas de 
 
 ### 1. Clases Abstractas y Herencia
 
-- **`Core.php`**: Definida como una `abstract class`. No se puede instanciar directamente, pero establece la base del sistema, conteniendo constantes fundamentales como la corporación (`Cyberdyne Systems`) y el versionad, bajo la suposición lúdica de que SkyNet se desarrolla en un futuro entorno de **PHP 11.4**.
+- **`Core.php`**: Definida como una `abstract class`. No se puede instanciar directamente, pero establece la base del sistema, conteniendo constantes fundamentales como la corporación (`Cyberdyne Systems`) y el versionadowq, bajo la suposición lúdica de que SkyNet se desarrolla en un futuro entorno de **PHP 11.4**.
 
 - **`Terminator.php`**: Hereda de `Core` (`extends Core`), especializando la funcionalidad base para una unidad de combate.
 

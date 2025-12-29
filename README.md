@@ -7,7 +7,7 @@ A place for coding PHP just for fun.
 Install via composer:
 
 ```bash
-composer require dataplay/php-just-for-fun
+composer require dataplay/php-j4f
 ```
 
 ## Commands
