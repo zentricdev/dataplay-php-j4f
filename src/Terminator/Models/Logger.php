@@ -47,9 +47,14 @@ class Logger
     {
         $color = "\033[0;32m";
         $reset = "\033[0m";
+        $chars = str_split($message);
 
-        $message = "{$timestamp->format('Y-m-d H:i:s')} {$color}$message{$reset}";
-
-        echo $message . PHP_EOL;
+        echo $timestamp->format('Y-m-d H:i:s ');
+        echo $color;
+        foreach ($chars as $char) {
+            echo $char;
+            usleep(25000);
+        }
+        echo $reset . PHP_EOL;
     }
 }
